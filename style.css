@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-color: #EEF0E5;
+  --white-color: #FFF;
+  --cinzabnb-color: #646464;
+  --laranjabnb-color: #F68B1F;
+  --main-color: #A61928;
+  --second-color: #DC2150;
+  --error-color: #721C24;
+  --error-second-color: #F8D7DA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  background: var(--bg-color);
+  height: 100vh;
+}
+
+.chatbot header {
+  padding: 16px 0;
+  text-align: center;
+  border-radius: 15px;
+  position: absolute;
+  left: 55%;
+  margin: 0 auto;
+}
+
+.chatbot header h2 {
+  color: var(--main-color);
+  font-size: 1.6rem;
+  left: 50%;
+}
+
+.container-box-frame{
+  position: absolute;
+  height: 90vh;
+  width: 70%;
+  left: 28%;
+}
+.container .container-box {
+  display: flex;
+  height: 100%;
+}
+
+.container-box-frame {
+  border-radius:  0 0 18px 18px;
+  top: 70px;
+}
+
+.container-box .sidebar {
+  background: var(--main-color);
+  height: 100%;
+  width: 25%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 0 50px 0;
+}
+
+.chatbot .chatbox {
+  height: 685px;
+  overflow: auto;
+  padding: 30px 20px 20px;
+}
+
+.chatbox .chat {
+  display: flex;
+}
+
+.chatbox .incoming span {
+  height: 32px;
+  width: 32px;
+  color: var(--white-color);
+  align-self: flex-end;
+  background-color: var(--laranjabnb-color);
+  text-align: center;
+  line-height: 32px;
+  border-radius: 4px;
+  margin: 0 10px 7px 0;
+}
+
+.container-box-frame .chatbox .chat p {
+  color: var(--white-color);
+  max-width: 80%;
+  white-space: pre-wrap;
+  font-size: 0.90rem;
+  padding: 12px 16px;
+  border-radius: 10px 10px 10px 0;
+  background: var(--main-color);
+}
+
+.chatbox .chat p.error {
+  color: var(--error-color);
+  background-color: var(--error-second-color);
+}
+
+.chatbox .incoming p {
+  color: #000;
+  background: var(--laranjabnb-color);
+  border-radius: 10px 10px 10px 0;
+}
+
+.chatbox .outgoing {
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+
+.container-box-frame .chatbox .outgoing p {
+ border-radius: 10px 10px 0 10px;
+}
+
+.chatbot .chat-input {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  background: var(--white-color);
+  padding: 5px 20px;
+  border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.chat-input textarea {
+  height: 55px;
+  width: 100%;
+  border: none;
+  outline: none;
+  max-height: 180px;
+  font-size: 0.90rem;
+  resize: none;
+  padding: 16px 15px 16px 0;
+}
+
+.chat-input span {
+  height: 50px;
+  line-height: 55px;
+  color: var(--main-color);
+  font-size: 1.6rem;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.chat-input textarea:valid ~ span {
+  visibility: visible;
+}
+
+.chatbot-toggler {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .chatbot {
+    position: relative;
+  }
+  
+  .container-box-frame {
+    position: absolute;
+    width: 100vw;
+  }
+
+  .chatbot header {
+    position: absolute;
+    left: 55%;
+    width: 100vw;
+  }
+
+  .chatbot .chatbox {
+    padding: 30px 55px 100px;
+  }
+
+  .chatbot .chat-input {
+    width: 100%;
+  }
+
+  .chatbot .chat-input {
+    border-radius: 0;
+    bottom: -12px;
+    border-top: 1px solid var(--laranjabnb-color);
+  }
+
+  .chatbot-toggler {
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 20px;
+  }
+
+  .chatbot-toggler span {
+    color: var(--main-color);
+    font-size: 2.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .show-chatbot .chatbot-toggler {
+    transform: rotate(90deg);
+  }
+  .chatbot-toggler span {
+    position: absolute;
+  }
+  .show-chatbot .chatbot-toggler span:first-child,
+  .chatbot-toggler span:last-child {
+    opacity: 0;
+  }
+  .show-chatbot .chatbot-toggler span:last-child {
+    opacity: 1;
+  }
+}
