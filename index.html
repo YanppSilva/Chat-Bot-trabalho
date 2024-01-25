@@ -12,13 +12,75 @@
 </head>
 
 <body>
-  <button class="chatbot-toggler">
-    <span class="open-btn material-symbols-outlined">menu</span>
-    <span class="close-btn material-symbols-outlined">close</span>
+  <aside class="sidebar">
+    <header class="sidebar-header">
+      <img class="logo-img" src="https://sujeitoprogramador.com/steve.png" alt="foto do usuário">
+    </header>
+    <nav>
+      <button>
+        <span>
+          <i class="material-symbols-outlined">home</i>
+          <span>lorem</span>
+        </span>
+      </button>
+      <button>
+        <span>
+          <i class="material-symbols-outlined">tag</i>
+          <span>lorem</span>
+        </span>
+      </button>
+      <button>
+        <span>
+          <i class="material-symbols-outlined">email</i>
+          <span>lorem</span>
+        </span>
+      </button>
+      <button>
+        <span>
+          <i class="material-symbols-outlined">person</i>
+          <span>lorem</span>
+        </span>
+      </button>
+    </nav>
+  </aside>
+  <button class="btn-mobile" onclick="toggleMenu()">
+    <i class="material-symbols-outlined">menu</i>
+    <span>Menu</span>
   </button>
+  <nav class="menu-mobile" id="menu-mobile">
+    <button onclick="toggleMenu()">
+      <span class="btn-close">
+        <i class="material-symbols-outlined">close</i>
+      </span>
+    </button>
+
+    <button>
+      <span>
+        <i class="material-symbols-outlined">home</i>
+        <span class="mobile-text">lorem</span>
+      </span>
+    </button>
+    <button>
+      <span>
+        <i class="material-symbols-outlined">tag</i>
+        <span class="mobile-text">lorem</span>
+      </span>
+    </button>
+    <button>
+      <span>
+        <i class="material-symbols-outlined">email</i>
+        <span class="mobile-text">lorem</span>
+      </span>
+    </button>
+    <button>
+      <span>
+        <i class="material-symbols-outlined">person</i>
+        <span class="mobile-text">lorem</span>
+      </span>
+    </button>
+  </nav>
   <section class="container">
     <div class="container-box">
-      <div class="sidebar"></div>
       <div class="chatbot">
         <header>
           <h2>Chat BNB</h2>
@@ -38,7 +100,6 @@
       </div>
     </div>
   </section>
-
 </body>
 
 </html>

@@ -1,10 +1,6 @@
 const chatInput = document.querySelector('.chat-input textarea');
 const sendChatBtn = document.querySelector('.chat-input span');
 const chatbox = document.querySelector('.chatbox');
-const chatBotToggler = document.querySelector('.chatbot-toggler');
-const chatOpenBtn = document.querySelector('.open-btn');
-const chatCloseBtn = document.querySelector('.close-btn');
-const sidebar = document.querySelector('.sidebar');
 
 let userMessage;
 const API_KEY = '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';
@@ -24,12 +20,13 @@ const createChatLi = (message, className) => {
 };
 
 const readtext = document.querySelector('.incoming p');
+//cria efeito de "maquina de escrever" na resposta do chat
 function typeWriter(element) {
   const textArray = element.innerHTML.split('');
   element.innerHTML = '';
   textArray.forEach((letter, i) => {
     setTimeout(()=> 
-      element.innerHTML += letter, 55 * i);
+      element.innerHTML += letter, 45 * i);
   });
 }
 typeWriter(readtext);
@@ -99,13 +96,18 @@ chatInput.addEventListener('keydown', (e) => {
 });
 sendChatBtn.addEventListener('click', handleChat);
 
-chatOpenBtn.addEventListener('click', () =>
-  document.body.classList.toggle('show-chatbot'),
-);
+function toggleMenu(){
+  const menuMobile = document.getElementById('menu-mobile');
 
-chatCloseBtn.addEventListener('click', () =>
-  document.body.classList.remove('show-chatbot'),
-);
+  if(menuMobile.className === 'menu-mobile-active'){
+    menuMobile.className = 'menu-mobile'
+  } else {
+    menuMobile.className = 'menu-mobile-active'
+  }
+}
+
+
+
 
 
 
