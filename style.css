@@ -6,6 +6,7 @@
   --cinzabnb-color: #646464;
   --laranjabnb-color: #F68B1F;
   --main-color: #A61928;
+  --main-color-2: #8F1D29;
   --second-color: #DC2150;
   --error-color: #721C24;
   --error-second-color: #F8D7DA;
@@ -42,7 +43,7 @@ body {
 .chatbot header h2 {
   color: var(--main-color);
   font-size: 1.6rem;
-  left: 50%;
+  width: max-content;
 }
 
 .container-box-frame {
@@ -170,7 +171,15 @@ body {
 
 .sidebar-header {
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sidebar-header>small {
+  font-size: inherit;
+  color: var(--white-color);
 }
 
 .logo-img {
@@ -187,19 +196,26 @@ body {
 }
 
 .sidebar button {
-  height: 60px;
-  background: transparent;
+  height: 120px;
+  background-color: var(--main-color-2);
   border: 0;
+  border-radius: 18px;
   font-family: inherit;
   color: var(--white-color);
   cursor: pointer;
   text-align: left;
   padding: 0;
+  margin-bottom: 25px;
+}
+
+.sidebar button:last-child {
+  margin-bottom: 0;
 }
 
 .sidebar button>span {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  text-align: start;
   gap: 12px;
   height: 48px;
   padding: 0 16px 0 16px;
@@ -208,8 +224,14 @@ body {
   transition: all 0.2s;
 }
 
-.sidebar button:hover>span {
-  background: rgba(246, 139, 31, 1);
+
+
+.sidebar button:hover {
+  border: 1px solid var(--laranjabnb-color);
+}
+
+.title-hist-span {
+  font-weight: bold;
 }
 
 .sidebar button i {
@@ -259,12 +281,10 @@ body {
   }
 
   .chatbot header {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
+    position: fixed;
+    left: 55%;
     padding: 16px 0;
     text-align: center;
-    margin: 0 auto;
   }
 
   .show-chatbot .chatbot {
@@ -290,7 +310,8 @@ body {
     bottom: -12px;
     border-top: 1px solid var(--laranjabnb-color);
   }
-/* 
+
+  /* 
   .sidebar {
     width: 72px;
   }
@@ -309,7 +330,7 @@ body {
   .chatbox .chat {
     margin-left: 195px;
   }
-  
+
   .sidebar {
     width: 220px;
   }
@@ -337,10 +358,10 @@ body {
 }
 
 .menu-mobile-active {
-  width: 100vw;
+  width: 50vw;
   height: 100vh;
+  padding: 0 12px;
   background-color: var(--main-color);
-  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
@@ -348,19 +369,38 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-right: 1px solid var(--laranjabnb-color);
   overflow: hidden;
+  z-index: 99;
 }
 
 .menu-mobile-active button {
-  background: transparent;
+  background-color: var(--main-color-2);
+  height: 100px;
+  border-radius: 18px;
   border: 0;
   color: var(--white-color);
   margin-bottom: 16px;
+  text-align: left;
+}
+
+.menu-mobile-active button:first-child {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .menu-mobile-active button>span {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  text-align: start;
+  padding: 0 12px;
 }
 
 .btn-close i {
@@ -372,7 +412,32 @@ body {
   margin-left: 8px;
 }
 
+.btn-logout {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.sidebar .btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 12px;
+}
+
+.sidebar button:last-child > small{
+  font-size: 1rem;
+}
+
 @media screen and (max-width: 431px) {
+  .chatbot header {
+    position: fixed;
+    left: 36%;
+    padding: 16px 0;
+    text-align: center;
+  }
+
   .sidebar {
     display: none;
   }
@@ -391,5 +456,18 @@ body {
 
   .chatbox .chat {
     margin-left: 0;
+  }
+
+  .btn-logout {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }
+
+@media screen and (max-width: 320px) {
+  .chatbot header {
+    position: fixed;
+    left: 30%;
+  }
 }
