@@ -25,7 +25,7 @@ function typeWriter(element) {
   const textArray = element.innerHTML.split('');
   element.innerHTML = '';
   textArray.forEach((letter, i) => {
-    setTimeout(() => (element.innerHTML += letter), 45 * i);
+    setTimeout(() => (element.innerHTML += letter), 5 * i);
   });
 }
 typeWriter(readtext);
@@ -34,24 +34,6 @@ const generateResponse = async (incomingChatLi) => {
   const API_URL =
     'https://8000-matheussanto-projetogpt-u9w6gd2seb7.ws-us107.gitpod.io/answer';
   const messageElement = incomingChatLi.querySelector('p');
-
-  // const requestOptions = {
-  //   body: JSON.stringify({
-  //     "model": "gpt-3.5-turbo",
-  //     "messages": [
-  //       {
-  //         "role": "user",
-  //         "content": userMessage
-  //       }
-  //     ]
-  //   }),
-  //   method: "POST",
-  //   headers: {
-  //     "content-type": "application/json",
-  //     "Authorization": `Bearer ${API_KEY}`,
-  //   }
-  // };
-
   const requestOptions = obterResposta();
 
   async function obterResposta(resposta) {
@@ -66,18 +48,19 @@ const generateResponse = async (incomingChatLi) => {
   }
 
   await fetch(
-    `https://8000-matheussanto-projetogpt-u9w6gd2seb7.ws-us107.gitpod.io/answer?question="${userMessage}"`,
+    `${API_URL}${userMessage}`,
   )
     .then((res) => res.text())
     .then((data) => {
       messageElement.textContent = data;
+      typeWriter(messageElement);
     })
     .catch((error) => {
       messageElement.classList.add('error');
       messageElement.textContent = 'Oops! Algo deu errado. Tente novamente';
+      typeWriter(messageElement);
     })
     .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
-  typeWriter(messageElement);
 };
 
 const handleChat = () => {
@@ -88,7 +71,7 @@ const handleChat = () => {
 
   // Anexa a mensagem do usuário à caixa de bate-papo
   chatbox.appendChild(createChatLi(userMessage, 'outgoing'));
-  chatbox.scrollTo(0, chatbox.scrollHeight);
+  chatbox.scrollTo(685, chatbox.scrollHeight);
 
   setTimeout(() => {
     // Mostra a mensagem "Processando..." enquanto espera pela resposta do bot.

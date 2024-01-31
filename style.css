@@ -25,6 +25,7 @@
 
 body {
   background: var(--bg-color);
+  scrollbar-width: thin;
 }
 
 .container {
@@ -485,4 +486,20 @@ body {
     position: fixed;
     left: 30%;
   }
+}
+
+.chatbot .chatbox::-webkit-scrollbar {
+  width: 10px;
+  height: 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.chatbot .chatbox::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+.chatbot .chatbox::-webkit-scrollbar-thumb {
+  background-color:var(--laranjabnb-color);
+  border-radius: 18px;
 }
