@@ -119,6 +119,18 @@ body {
   border-radius: 10px 10px 0 10px;
 }
 
+.container-box-frame .chatbox .logo-img-outgoing {
+  width: 35px;
+  max-height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.4s;
+  margin-left: 15px;
+}
+
+.chat img {margin-top: 10px;
+}
+
 .chatbot .chat-input {
   width: 80%;
   display: flex;
@@ -496,7 +508,7 @@ body {
 }
 
 .chatbot .chatbox::-webkit-scrollbar-track {
-  background: var(--bg-color);
+  background: #E3E1D9;
 }
 
 .chatbot .chatbox::-webkit-scrollbar-thumb {

@@ -12,7 +12,7 @@ const createChatLi = (message, className) => {
   chatLi.classList.add('chat', className);
   let chatContent =
     className === 'outgoing'
-      ? `<p></p>`
+      ? `<p></p><img class="logo-img-outgoing" src="https://sujeitoprogramador.com/steve.png" alt="foto do usuário">`
       : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
   chatLi.innerHTML = chatContent;
   chatLi.querySelector('p').textContent = message;
@@ -57,12 +57,10 @@ const generateResponse = async (incomingChatLi) => {
     })
     .catch((error) => {
       messageElement.classList.add('error');
-      messageElement.textContent = 'Oops! Algo deu errado. Tente novamente';
-      typeWriter(messageElement);
+      messageElement.textContent = 'Oops! Algo deu errado. Tente novamente.';
     })
     .finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
 };
-
 const handleChat = () => {
   userMessage = chatInput.value.trim();
   if (!userMessage) return;
